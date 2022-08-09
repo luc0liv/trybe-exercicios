@@ -1,8 +1,0 @@
-
-Javascript
-Css
-React
-HTML
-CSS
-NODE
-
