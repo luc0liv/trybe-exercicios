@@ -1,0 +1,17 @@
+p,
+h1 {
+  text-align: center;
+}
+
+li {
+  list-style: none;
+}
+
+li:hover {
+  background-color: darkcyan;
+}
+
+li:active {
+  color: azure;
+  font-family: "Franklin Gothic Medium", sans-serif;
+}
