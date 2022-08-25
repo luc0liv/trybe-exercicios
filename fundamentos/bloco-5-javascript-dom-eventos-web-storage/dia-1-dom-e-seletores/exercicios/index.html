@@ -55,12 +55,19 @@
         6. Crie e execute uma função que exiba o conteúdo de todas as tags <p> no console.
         */
 
-        function changeParagraphText(tag, index, info) {
+        function changeParagraphText(tag, index, text) {
             const paragraph = document.getElementsByTagName(tag);          
-            paragraph[index].innerText = info;
+            paragraph[index].innerText = text;
         }
 
         changeParagraphText('p', 1, "Flee in terror at cucumber discovered on floor. Cat mojo lies down . Sleep enslave the hooman.");
+
+        function changeBackgroundColor(query, color) {
+            const background = document.querySelector(query).style.backgroundColor = color;
+        }
+
+        changeBackgroundColor(".main-content", "green");
+        changeBackgroundColor(".main-content .center-content", "white");
     </script>
   </body>
 </html>
