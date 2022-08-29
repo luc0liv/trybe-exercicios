@@ -60,6 +60,7 @@ function createButton(query, string, id) {
 }
 
 createButton(".buttons-container", "Feriados", "btn-holiday");
+createButton(".buttons-container", "Sexta-feira", "btn-friday");
 
 const holidayButton = document.querySelector("#btn-holiday");
 const holidays = document.querySelectorAll(".holiday");
