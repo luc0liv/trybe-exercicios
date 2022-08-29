@@ -21,10 +21,34 @@ function createDaysOfTheWeek() {
 
     for(let index = 0; index < decemberDaysList.length; index += 1) {
         const createListElement = document.createElement('li');
-        createListElement.innerHTML = decemberDaysList[index];
+        let day = decemberDaysList[index];
+        createListElement.innerHTML = day;
+        
+        if (day === 24 || day === 31) {
+            createListElement.className = 'day holiday';
+        } else if (day === 4 || day === 11 || day === 18) {
+            createListElement.className = 'day friday';
+        } else if (day === 25) {
+            createListElement.className = 'day holiday friday';
+        }
+        else {
+            createListElement.className = 'day';
+        }
 
         days.appendChild(createListElement);
     }
   }
 
   createDaysOfTheMonth()
+
+  function createButton(query, string, id) {
+    const getParent = document.querySelector(query);
+    const newButton = document.createElement('button');
+    newButton.innerText = string;
+    newButton.id = id;
+    getParent.append(newButton);
+  }
+
+  createButton('.buttons-container','Feriados', 'btn-holiday');
+
+  
