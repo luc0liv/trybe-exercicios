@@ -51,16 +51,17 @@ function createDaysOfTheMonth() {
 
 createDaysOfTheMonth();
 
-function createButton(query, string, id) {
+function createElement(kind, query, string, id, className) {
+  const newElement = document.createElement(kind);
   const getParent = document.querySelector(query);
-  const newButton = document.createElement("button");
-  newButton.innerText = string;
-  newButton.id = id;
-  getParent.append(newButton);
+  newElement.innerText = string;
+  newElement.id = id;
+  newElement.className = className;
+  return getParent.appendChild(newElement);
 }
 
-createButton(".buttons-container", "Feriados", "btn-holiday");
-createButton(".buttons-container", "Sexta-feira", "btn-friday");
+createElement("button", ".buttons-container", "Feriados", "btn-holiday");
+createElement("button", ".buttons-container", "Sexta-feira", "btn-friday");
 
 const holidayButton = document.querySelector("#btn-holiday");
 const holidays = document.querySelectorAll(".holiday");
@@ -70,11 +71,86 @@ function changeHolidayColor() {
   let oldColor = "rgb(238,238,238)";
   holidays.forEach((el) => {
     if (el.style.backgroundColor === newColor) {
-        el.style.backgroundColor = oldColor;
+      el.style.backgroundColor = oldColor;
     } else {
-        el.style.backgroundColor = newColor;
+      el.style.backgroundColor = newColor;
     }
   });
 }
 
 holidayButton.addEventListener("click", changeHolidayColor);
+
+const fridayButton = document.querySelector("#btn-friday");
+const fridays = document.querySelectorAll(".friday");
+
+function getFridays() {
+  let decemberFridays = [4, 11, 18, 25];
+  let teste;
+  for (let index in decemberFridays) {
+    teste = decemberFridays[index];
+    return teste;
+  }
+}
+
+function changeFridays() {
+  let newText = "Sextou";
+  let decemberFridays = [4, 11, 18, 25];
+
+  fridayButton.addEventListener("click", function() {
+    for(let index = 0; index < fridays.length; index += 1) {
+      if(fridays[index].innerText !== newText) {
+        fridays[index].innerText = newText;
+      } else {
+        fridays[index].innerText = decemberFridays[index];
+      }
+    }
+  })
+}
+
+changeFridays()
+
+
+function zoomEffect() {
+  const days = document.querySelector("#days");
+
+  days.addEventListener("mouseover", function (event) {
+    event.target.style.fontSize = "30px";
+  });
+  days.addEventListener("mouseout", function (event) {
+    event.target.style.fontSize = "16px";
+  });
+}
+
+zoomEffect();
+
+function createTask(task) {
+  createElement("span", ".my-tasks", task);
+}
+
+createTask("Estudar ");
+createTask("Dormir ");
+
+function setColoredSubtitle(color) {
+let parent = document.querySelector(".my-tasks");
+let element = document.createElement("div");
+element.className = "task";
+element.style.backgroundColor = color;
+parent.appendChild(element);
+}
+
+setColoredSubtitle('crimson');
+
+function setTaskClass() {
+  let selectedTask = document.getElementsByClassName('task selected');
+  let myTasks = document.querySelector('.task');
+
+  myTasks.addEventListener("click", function(event) {
+    if (selectedTask.length === 0) {
+      event.target.className = 'task selected';
+    } else {
+      event.target.className = 'task';
+    }
+  })
+}
+
+setTaskClass();
