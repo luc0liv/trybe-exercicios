@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+<body>
+    <button id="counter-btn">Click me</button>
+    <h1 id="counter">0</h1>
+    <script>
+       const countingClicks = () => {
+        const button = document.getElementById('counter-btn');
+        const counterDisplay = document.getElementById('counter');
+        let count = 0;
+        button.addEventListener('click', () => {
+            count += 1;
+            counterDisplay.innerHTML = count;
+        })
+       }
+
+       countingClicks()
+    </script>
+</body>
+</html>
