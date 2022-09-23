@@ -4,7 +4,7 @@
   }
 
   const drawNumbers = (number, callback) => {
-    let sort = Math.floor((Math.random() * 5) + 1);
+    const sort = Math.floor((Math.random() * 5) + 1);
     return callback(number, sort);
   }
 
