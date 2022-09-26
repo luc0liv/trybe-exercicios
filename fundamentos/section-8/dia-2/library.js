@@ -97,10 +97,22 @@ const books = [
   console.log(booksOrderedByReleaseYearDesc());
 
   const everyoneWasBornOnSecXX = () => {
-    return books.every(book => {
-        book.author.birthYear >= 1901 && book.author.birthYear <= 2000 
-    })
+    return books.every(book => book.author.birthYear >= 1901 && book.author.birthYear <= 2000);
   }
 
   console.log(everyoneWasBornOnSecXX());
 
+  const someBookWasReleaseOnThe80s = () => {
+    return books.some(book => book.releaseYear >= 1980 && book.releaseYear <= 1989);
+  }
+
+  console.log(someBookWasReleaseOnThe80s());
+
+  const authorUnique = () => {
+    return books.every((book) =>
+      !books.some((bookSome) =>
+        (bookSome.author.birthYear === book.author.birthYear)
+        && (bookSome.author.name !== book.author.name)));
+  }
+
+  console.log(authorUnique());
