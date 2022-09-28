@@ -1,6 +1,7 @@
 const palio = ['Palio', 'Fiat', 2019];
 const shelbyCobra = ['Shelby Cobra', 'Ford', 1963];
 const chiron = ['Chiron', 'Bugatti', 2016];
+const cars = [palio, shelbyCobra, chiron];
 
 // escreva toObject abaixo
 
@@ -13,6 +14,4 @@ const toObject = (car) => {
     }
 }
 
-console.log(toObject(palio));
-console.log(toObject(shelbyCobra));
-console.log(toObject(chiron));
+cars.forEach(car => console.log(toObject(car)));
